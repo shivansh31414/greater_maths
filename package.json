@@ -1,0 +1,45 @@
+{
+  "name": "scientific-toolkit",
+  "version": "1.0.0",
+  "description": "Scientific computation toolkit for Node.js with CLI and reusable API.",
+  "main": "src/index.js",
+  "bin": {
+    "scientific-toolkit": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "keywords": [
+    "scientific",
+    "math",
+    "linear-algebra",
+    "calculus",
+    "probability",
+    "units",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3"
+  }
+}
