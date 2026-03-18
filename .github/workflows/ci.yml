@@ -9,6 +9,10 @@ on:
 jobs:
   lint-test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [16, 18, 20]
 
     steps:
       - name: Checkout
@@ -17,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
           cache: npm
 
       - name: Install dependencies
@@ -30,10 +34,20 @@ jobs:
         run: npm test
 
       - name: Coverage
+        if: matrix.node-version == 20
         run: npm run coverage
 
       - name: Upload coverage artifacts
+        if: matrix.node-version == 20
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage/
+
+      - name: Upload coverage to Codecov
+        if: matrix.node-version == 20
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/lcov.info
+          fail_ci_if_error: false
+          verbose: true
