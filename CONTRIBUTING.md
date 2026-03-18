@@ -17,6 +17,9 @@ Thanks for contributing to `scientific-toolkit`.
 - Include tests for new behavior and bug fixes.
 - Update docs (`README.md`) for public API or CLI changes.
 - Ensure CI is green before requesting review.
+- Use one feature branch per logical addition.
+- Open PRs targeting `main` and avoid unrelated commits in the same PR.
+- Keep commit history clean and atomic for easier review.
 
 ## Testing Guidelines
 

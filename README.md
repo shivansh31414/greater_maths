@@ -1,5 +1,8 @@
 # scientific-toolkit
 
+[![CI](https://github.com/shivansh31414/greater_maths/actions/workflows/ci.yml/badge.svg)](https://github.com/shivansh31414/greater_maths/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/shivansh31414/greater_maths/branch/main/graph/badge.svg)](https://codecov.io/gh/shivansh31414/greater_maths)
+
 A Node.js scientific computation package with a CLI and reusable API for core math, probability distributions, and unit conversion with dimensional analysis.
 
 ## Features
@@ -8,6 +11,20 @@ A Node.js scientific computation package with a CLI and reusable API for core ma
   - Complex number arithmetic
   - Linear algebra: matrix multiplication and determinant
   - Calculus: numerical derivatives and integrals
+- Numerical methods:
+  - Newton-Raphson root finding
+  - Numerical differentiation and integration
+  - ODE solvers (Euler and RK4)
+- Vector calculus:
+  - Gradient
+  - Divergence
+  - Curl
+- Regression and curve fitting:
+  - Linear least squares
+  - Polynomial fitting
+- Engineering modules:
+  - Circuit analysis (Ohm's law, RLC impedance)
+  - Chemical stoichiometry (molar mass, theoretical yield)
 - Probability distributions:
   - Normal (PDF/CDF)
   - Poisson (PMF)
@@ -66,6 +83,21 @@ console.log(toolkit.probability.binomialPmf(5, 10, 0.3));
 
 console.log(toolkit.units.convert(36, 'km/h', 'm/s')); // 10
 console.log(toolkit.units.analyzeDimensions('N')); // {L:1,M:1,T:-2,...}
+
+const root = toolkit.numerical.newtonRaphson((x) => x * x - 2, 1.0);
+console.log(root.root); // ~1.4142
+
+const rk4 = toolkit.numerical.solveODERungeKutta4((x, y) => y, 0, 1, 0.1, 10);
+console.log(rk4[rk4.length - 1]); // y(1) ~ e
+
+const grad = toolkit.vector.gradient(([x, y, z]) => x * x + y * y + z * z, [1, 2, 3]);
+console.log(grad); // [2,4,6]
+
+const line = toolkit.regression.linearLeastSquares([0, 1, 2], [1, 3, 5]);
+console.log(line.slope, line.intercept); // ~2, ~1
+
+const z = toolkit.engineering.circuit.impedanceSeriesRLC(10, 10e-3, 100e-6, 159.15);
+console.log(z.magnitude);
 ```
 
 ## CLI Usage
@@ -116,12 +148,19 @@ npm run coverage
 
 - `.github/workflows/ci.yml`
   - Runs on every PR and pushes to `main`
-  - Runs lint, tests, and coverage generation
+  - Runs lint and tests on Node.js 16, 18, and 20
+  - Runs coverage and uploads reports on Node.js 20
+  - Uploads coverage to Codecov for badge tracking
   - Uploads coverage as a workflow artifact
 - `.github/workflows/publish.yml`
   - Runs on published GitHub releases
   - Re-runs lint and tests
   - Publishes package to npm using `NPM_TOKEN`
+
+## Tutorials
+
+- [ODE Solver Tutorial](docs/tutorials/ode-solver.md)
+- [Regression Fitting Tutorial](docs/tutorials/regression-fitting.md)
 
 Required secret:
 
