@@ -10,6 +10,13 @@ const {
 } = require('./numerical/methods');
 const { gradient, divergence, curl } = require('./vector/calculus');
 const { linearLeastSquares, polynomialFit } = require('./regression/fitting');
+const { ohmsLaw, impedanceSeriesRLC } = require('./engineering/circuit');
+const {
+  molarMass,
+  gramsToMoles,
+  molesToGrams,
+  theoreticalYield,
+} = require('./engineering/stoichiometry');
 const { normalPdf, normalCdf, poissonPmf, binomialPmf } = require('./probability/distributions');
 const { convert, analyzeDimensions } = require('./units/conversion');
 
@@ -36,6 +43,18 @@ module.exports = {
   regression: {
     linearLeastSquares,
     polynomialFit,
+  },
+  engineering: {
+    circuit: {
+      ohmsLaw,
+      impedanceSeriesRLC,
+    },
+    chemistry: {
+      molarMass,
+      gramsToMoles,
+      molesToGrams,
+      theoreticalYield,
+    },
   },
   probability: {
     normalPdf,
