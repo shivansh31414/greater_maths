@@ -9,6 +9,7 @@ const {
   solveODERungeKutta4,
 } = require('./numerical/methods');
 const { gradient, divergence, curl } = require('./vector/calculus');
+const { linearLeastSquares, polynomialFit } = require('./regression/fitting');
 const { normalPdf, normalCdf, poissonPmf, binomialPmf } = require('./probability/distributions');
 const { convert, analyzeDimensions } = require('./units/conversion');
 
@@ -31,6 +32,10 @@ module.exports = {
     gradient,
     divergence,
     curl,
+  },
+  regression: {
+    linearLeastSquares,
+    polynomialFit,
   },
   probability: {
     normalPdf,
