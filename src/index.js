@@ -19,6 +19,9 @@ const {
 } = require('./engineering/stoichiometry');
 const { normalPdf, normalCdf, poissonPmf, binomialPmf } = require('./probability/distributions');
 const { convert, analyzeDimensions } = require('./units/conversion');
+const { Plugin, PluginManager } = require('./plugins/loader');
+const astrophysicsPlugin = require('./plugins/astrophysics');
+const bioinformaticsPlugin = require('./plugins/bioinformatics');
 
 module.exports = {
   core: {
@@ -65,5 +68,13 @@ module.exports = {
   units: {
     convert,
     analyzeDimensions,
+  },
+  plugins: {
+    Plugin,
+    PluginManager,
+    builtin: {
+      astrophysics: astrophysicsPlugin,
+      bioinformatics: bioinformaticsPlugin,
+    },
   },
 };
