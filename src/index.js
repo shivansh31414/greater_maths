@@ -22,6 +22,7 @@ const { convert, analyzeDimensions } = require('./units/conversion');
 const { Plugin, PluginManager } = require('./plugins/loader');
 const astrophysicsPlugin = require('./plugins/astrophysics');
 const bioinformaticsPlugin = require('./plugins/bioinformatics');
+const LaTeXExporter = require('./latex/exporter');
 
 module.exports = {
   core: {
@@ -76,5 +77,8 @@ module.exports = {
       astrophysics: astrophysicsPlugin,
       bioinformatics: bioinformaticsPlugin,
     },
+  },
+  latex: {
+    LaTeXExporter,
   },
 };
