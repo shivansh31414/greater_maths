@@ -127,6 +127,10 @@ dist
 
 # Docs build outputs
 docs/build/
+docs/api/
+
+# TypeDoc generated documentation
+docs/api
 
 # Editor settings
 .vscode/
