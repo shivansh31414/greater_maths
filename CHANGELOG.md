@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Plugin system for domain-specific formulas (astrophysics, bioinformatics)
 - LaTeX export for equations and mathematical results
 - Graphing support using Plotly.js
@@ -20,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-01-XX
 
 ### Added
+
 - Initial release of scientific-toolkit
 - Core mathematics modules (complex numbers, linear algebra, calculus)
 - Numerical methods (Newton-Raphson, ODE solvers)
