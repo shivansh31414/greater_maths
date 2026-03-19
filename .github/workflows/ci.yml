@@ -30,6 +30,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Prettier check
+        run: npx prettier --check "src/**/*.js" "tests/**/*.js" "examples/**/*.js"
+
       - name: Test
         run: npm test
 
